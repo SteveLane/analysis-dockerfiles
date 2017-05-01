@@ -1,6 +1,6 @@
 # Analysis dockerfiles
 
-This repository hosts the dockerfiles required to reproduce the various analyses listed below. These are provided in a self-contained repository to make use of dockerhub's automated builds.
+This repository hosts the dockerfiles required to reproduce the various analyses listed below. These are provided in a self-contained repository to make use of dockerhub's automated builds. All builds are based off a base-image for convenience, which are organised by year.
 
 ## List of analyses
 
