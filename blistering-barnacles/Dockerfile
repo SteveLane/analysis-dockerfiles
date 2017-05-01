@@ -16,5 +16,9 @@ RUN mkdir /home/blistering-barnacles
 # Set working directory
 WORKDIR /home/blistering-barnacles
 
+# Add script to /tmp
+ADD get-stuff.sh /tmp
+RUN chmod u+x /tmp/get-barnacles.sh
+
 # Here be /bin/bash if I want? 
-CMD ["/bin/bash"]
+CMD /tmp/get-barnacles.sh;/bin/bash
