@@ -10,9 +10,8 @@ RUN . /etc/environment \
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-# Clone repository
-RUN git clone https://github.com/SteveLane/blistering-barnacles.git \
-  /home/blistering-barnacles
+# Create working directory
+RUN mkdir /home/blistering-barnacles
 
 # Set working directory
 WORKDIR /home/blistering-barnacles
