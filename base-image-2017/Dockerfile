@@ -9,6 +9,7 @@ RUN apt-get update \
     texlive-bibtex-extra \
     git \
     clang \
+    biber \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
 
@@ -22,7 +23,7 @@ RUN mkdir -p $HOME/.R/ \
 ## And add in required packages
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    rstan loo
+    bindr bindrcpp rstan loo
 
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
