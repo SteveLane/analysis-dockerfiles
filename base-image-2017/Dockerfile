@@ -1,4 +1,4 @@
-FROM rocker/verse:3.3.3
+FROM rocker/verse:3.4.0
 LABEL maintainer="Steve Lane"
 LABEL email="lane.s@unimelb.edu.au"
 
