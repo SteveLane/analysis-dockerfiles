@@ -23,7 +23,7 @@ RUN mkdir -p $HOME/.R/ \
 ## And add in required packages
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    bindr bindrcpp rstan loo
+    bindr bindrcpp rstan loo RColorBrewer
 
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
