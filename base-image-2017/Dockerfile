@@ -8,7 +8,6 @@ RUN apt-get update \
     latexmk \
     texlive-bibtex-extra \
     git \
-    clang \
     biber \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
@@ -16,9 +15,7 @@ RUN apt-get update \
 ## Add in opts
 # Global site-wide config
 RUN mkdir -p $HOME/.R/ \
-    && echo "\nCXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function\n" >> $HOME/.R/Makevars \
-    && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
-    && echo "CC=clang\n" >> $HOME/.R/Makevars
+    && echo "\nCXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function\n" >> $HOME/.R/Makevars
 
 ## And add in required packages
 RUN . /etc/environment \ 
