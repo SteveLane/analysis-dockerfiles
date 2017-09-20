@@ -34,13 +34,15 @@ RUN . /etc/environment \
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-## Add user
+## Add user (and set up git stuff)
 RUN useradd overlordR \
   && echo "overlordR:overlordR" | chpasswd \
   && mkdir /home/overlordR \
   && chown overlordR:overlordR /home/overlordR \
   && addgroup overlordR staff \
-  && chsh overlordR -s /bin/bash
+  && chsh overlordR -s /bin/bash \
+  && git config --global user.email "overlordR@overlordR" \
+  && git config --global user.name "overlordR"
 
 ## Set up emacs and a directory to hold projects
 USER overlordR
