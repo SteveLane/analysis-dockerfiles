@@ -21,19 +21,8 @@ RUN mkdir -p /home/cebra-templates \
     /usr/local/share/texmf/tex/latex/cebra/cebra.sty \
   && texhash
 
-## Add in required packages
-## RUN . /etc/environment \ 
-##   && install2.r --error --repos $MRAN --deps TRUE \
-##     mice randomForest
-
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-# Create working directory
-RUN mkdir /home/cebra
-
-# Set working directory
-WORKDIR /home/cebra
-
-# Here be /bin/bash if I want? 
-CMD ["/bin/bash"]
+## Run ssh by default
+CMD    ["/usr/sbin/sshd", "-D"]
