@@ -20,5 +20,6 @@ WORKDIR /home/blistering-barnacles
 ADD get-barnacles.sh /tmp
 RUN chmod u+x /tmp/get-barnacles.sh
 
-# Here be /bin/bash if I want? 
-CMD /tmp/get-barnacles.sh;/bin/bash
+# Here be /bin/bash if I want?
+# Comment out until it's ready to go.
+# CMD /tmp/get-barnacles.sh;/bin/bash
