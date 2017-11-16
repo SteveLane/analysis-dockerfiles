@@ -40,13 +40,13 @@ RUN useradd overlordR \
   && mkdir /home/overlordR \
   && chown overlordR:overlordR /home/overlordR \
   && addgroup overlordR staff \
-  && chsh overlordR -s /bin/bash \
-  && git config --global user.email "overlordR@overlordR" \
-  && git config --global user.name "overlordR"
+  && chsh overlordR -s /bin/bash
 
-## Set up emacs and a directory to hold projects
+## Set up git, emacs and a directory to hold projects
 USER overlordR
-RUN cd /home/overlordR \
+RUN git config --global user.email "overlordR@overlordR" \
+  && git config --global user.name "overlordR" \
+  && cd /home/overlordR \
   && mkdir projects \
   && mkdir .emacs.d \
   && cd .emacs.d \
