@@ -12,5 +12,15 @@ RUN . /etc/environment \
   && install2.r --error --repos $MRAN --deps TRUE \
     bnlearn gRain
 
+## Add in jags
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    jags
+
+## Add in HydeNet
+RUN . /etc/environment \
+  && install2.r --error --repos $MRAN --deps TRUE \
+    HydeNet
+
 # Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
