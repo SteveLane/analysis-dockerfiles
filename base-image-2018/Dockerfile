@@ -19,10 +19,15 @@ RUN mkdir -p $HOME/.R/ \
     && echo "\nCXXFLAGS+=-flto -Wno-unused-local-typedefs\n" >> $HOME/.R/Makevars \
     && echo "\nCXXFLAGS += -Wno-ignored-attributes -Wno-deprecated-declarations\n" >> $HOME/.R/Makevars
 
-## And add in required packages
+## And add in rstan
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
     rstan
+
+## Add in here
+RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN --deps TRUE \
+    here
 
 ## Remove unnecessary tmp files
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
